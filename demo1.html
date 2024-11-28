@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="./dist/output.css" rel="stylesheet" />
+
+    <style>
+      /* Blog */
+      .slider {
+        /* Kích thước khung chứa */
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        flex: 1 0 33.33%; /* 3 items trên mỗi trang */
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      .dots {
+        margin-top: 38px;
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+      }
+
+      .dots .dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        cursor: pointer;
+        background: var(--secondary-color);
+      }
+
+      .dots .dot.active {
+        cursor: default;
+        background: var(--fifth-color);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bg-[#FFFCF4]">
+      <div class="container pt-[96px] pb-[140px]">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="font-bold text-[38px] leading-[48px] texet-[#130606] pb-[16px]">Our blog</h1>
+          <p
+            class="text-[#696262] w-[448px] h-[56px] leading-[28px] text-[16px] font-normal text-center"
+          >
+            Read our regular travel blog and know the latest update of tour and travel
+          </p>
+        </div>
+
+        <!-- <div class="grid gap-[24px] grid-cols-3 pt-[55px]"></div> -->
+        <div class="slider mt-[55px]">
+          <!-- Slides container -->
+          <div class="slides pb-[30px]">
+            <!-- items1 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-1.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items2 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-2.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items3 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-3.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items4 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-4.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items5 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-5.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items6 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-6.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items7 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-7.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items8 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-8.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items9 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-9.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination bullets -->
+          <div class="slider-controls">
+            <div class="dots">
+              <button class="dot active" onclick="moveToSlide(0)"></button>
+              <button class="dot" onclick="moveToSlide(1)"></button>
+              <button class="dot" onclick="moveToSlide(2)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const slides = document.querySelector(".slides"); //querySelector lấy ptu đầu tiên chứa các slides
+      const dots = document.querySelectorAll(".dot"); // querySelectorAll lấy tất cả các nút châm
+      function moveToSlide(slideIndex) {
+        console.log(slideIndex);
+        //slideIndex là ptu được chọn
+        // Di chuyển slides
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+        // Thay đổi trạng thái active của các dots
+        dots.forEach((dot) => dot.classList.remove("active"));
+        dots[slideIndex].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

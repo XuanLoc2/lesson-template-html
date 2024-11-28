@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider with Dots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .slider-container {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .slider-track {
+        display: flex;
+        transition: transform 0.3s ease;
+      }
+      .slider-item {
+        flex: 0 0 calc(33.33% - 20px);
+        margin-right: 20px;
+      }
+      .slider-item img {
+        width: 100%;
+        display: block;
+      }
+      .slider-controls {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .dots {
+        display: flex;
+        gap: 10px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: #d3d3d3;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .dot.active {
+        background: #171100;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="slider-container">
+        <div class="slider-track">
+          <!-- Slide items -->
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <div class="slider-item">
+            <img src="/public/images/future.png" alt="HinhAnh" />
+            <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+              <p
+                class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+              >
+                <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                21 November 2021
+              </p>
+              <hr class="w-[160px] pb-[12px]" />
+              <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                How to become a pro web designer in 2022 and get a remote job?
+              </p>
+              <button
+                class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+              >
+                Read More
+              </button>
+            </div>
+            <div class="slider-item">
+              <img src="/public/images/future.png" alt="HinhAnh" />
+              <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/public/images/future.png" alt="HinhAnh" />
+              <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/public/images/future.png" alt="HinhAnh" />
+              <div class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg">
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const track = document.querySelector(".slider-track");
+      const dots = document.querySelectorAll(".dot");
+      let currentIndex = 0;
+
+      function updateSlider(index) {
+        const slideWidth = document.querySelector(".slider-item").offsetWidth;
+        track.style.transform = `translateX(-${index * slideWidth}px)`;
+        dots.forEach((dot) => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateSlider(currentIndex);
+        });
+      });
+
+      // Initialize slider
+      updateSlider(currentIndex);
+    </script>
+  </body>
+</html>

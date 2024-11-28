@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson.</title>
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Sen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- My CSS -->
+    <link href="./dist/output.css" rel="stylesheet" />
+
+    <style>
+      /* Css font Poppins cho cả body*/
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      /* Css font Sen*/
+      .banner-title {
+        font-family: "Sen", sans-serif;
+      }
+      /* Css dấu line cho nav home */
+      .line {
+        position: relative;
+      }
+      .line::before {
+        border-radius: 1px;
+        content: "";
+        bottom: 0px;
+        position: absolute;
+        width: 12px;
+        height: 3px;
+        background-color: black;
+      }
+      /* Css conten giới thiệu */
+      .swiper {
+        position: relative;
+      }
+      .swiper-pagination {
+        max-width: fit-content;
+        left: 0px;
+        bottom: 112px !important;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: #ffb900 !important;
+      }
+      .swiper-pagination-bullet {
+        background-color: #634700;
+      }
+      /* Blog */
+      .slider {
+        /* Kích thước khung chứa */
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        flex: 1 0 33.33%; /* 3 items trên mỗi trang */
+        box-sizing: border-box;
+        padding: 10px;
+      }
+
+      /* Ẩn các nút radio */
+      input[type="radio"] {
+        display: none;
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+      }
+
+      .pagination label {
+        width: 6px;
+        height: 6px;
+        background-color: #634700;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      /* Di chuyển slides */
+      #slide1:checked ~ .slides {
+        transform: translateX(0); /* Nhóm đầu tiên */
+      }
+
+      #slide2:checked ~ .slides {
+        transform: translateX(-100%); /* Nhóm thứ hai */
+      }
+
+      #slide3:checked ~ .slides {
+        transform: translateX(-200%); /* Nhóm thứ ba */
+      }
+
+      /* Hiệu ứng pagination */
+      #slide1:checked ~ .pagination label:nth-of-type(1),
+      #slide2:checked ~ .pagination label:nth-of-type(2),
+      #slide3:checked ~ .pagination label:nth-of-type(3) {
+        background-color: #ffb900 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FFFFFF]">
+    <!-- Nav -->
+    <section class="w-full sticky top-0 z-[999] bg-[#FFFCF4] py-[16px]">
+      <div class="container flex items-center">
+        <div class="flex">
+          <img src="/public/images/logo.png" alt="Logo" />
+        </div>
+
+        <div class="ml-auto flex items-center gap-[70px] text-[16px] font-normal text-[#5F5B53]">
+          <nav>
+            <ul class="flex justify-end gap-[42px]">
+              <li class="line hover:font-bold hover:text-black font-bold text-black">
+                <a href="">Home</a>
+              </li>
+
+              <li class="hover:font-bold hover:text-black"><a href="">Coures</a></li>
+              <li class="hover:font-bold hover:text-black"><a href="">Pricing</a></li>
+              <li class="hover:font-bold hover:text-black"><a href="">Reviews</a></li>
+            </ul>
+          </nav>
+
+          <div class="bg-[#171100] px-[41px] py-[11px] rounded-[24.5px]">
+            <button class="text-[#FFFFFF] font-semibold text-[16px] leading-[28px] rounded-[24px]">
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Header -->
+    <section class="bg-[#FFFCF4]">
+      <div class="container">
+        <div class="flex justify-between gap-[130px] items-center">
+          <div class="relative w-[570px] pt-[72px] pb-[65px]">
+            <div class="w-[470px] h-[685px]">
+              <img src="/public/images/header.png" alt="HinhAnh" />
+            </div>
+
+            <div class="absolute bottom-[125px] left-[300px]">
+              <div class="bg-[#FFFFFF] shadow-xl rounded-[12px]">
+                <div class="p-[24px] w-[270px] gap-[22px] flex flex-col">
+                  <div class="flex items-center gap-[16px]">
+                    <div class="bg-[#FFF9E8] rounded-full">
+                      <img class="p-[12px]" src="/public/images/Orion_page.png" alt="" />
+                    </div>
+                    <div class="">
+                      <p class="text-[14px] leading-[26px] font-normal text-[#5F5B53]">
+                        20 Courses
+                      </p>
+                      <h1 class="text-[#171100] text-[18px] leading-[30px] font-semibold">
+                        UI/UX Design
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-[16px]">
+                    <div class="bg-[#FCEFFF] rounded-full">
+                      <img class="p-[12px]" src="/public/images/Orion_code-window.png" alt="" />
+                    </div>
+                    <div class="">
+                      <p class="text-[14px] leading-[26px] font-normal text-[#5F5B53]">
+                        20 Courses
+                      </p>
+                      <h1 class="text-[#171100] text-[18px] leading-[30px] font-semibold">
+                        Development
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-[16px]">
+                    <div class="bg-[#EBEAFF] rounded-full">
+                      <img class="p-[12px]" src="/public/images/Orion_megaphone.png" alt="" />
+                    </div>
+                    <div class="">
+                      <p class="text-[14px] leading-[26px] font-normal text-[#5F5B53]">
+                        30 Courses
+                      </p>
+                      <h1 class="text-[#171100] text-[18px] leading-[30px] font-semibold">
+                        Marketing
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-1">
+            <div class="flex flex-col gap-[22px] w-[490px]">
+              <h1 class="banner-title font-bold text-[58px] leading-[1.17] text-[#171100]">
+                Learn without limits and spread knowledge.
+              </h1>
+              <p class="font-normal text-[18px] leading-[30px] text-[#5F5B53]">
+                Build new skills for that “this is my year” feeling with courses, certificates, and
+                degrees from world-class universities and companies.
+              </p>
+            </div>
+
+            <div class="flex mt-[38px]">
+              <button
+                class="px-[34px] py-[17px] text-[#FFFFFF] text-[18px] font-semibold leading-[30px] bg-[#FFB900] rounded-[32px]"
+              >
+                See Courses
+              </button>
+
+              <button class="flex items-center ml-[28px]">
+                <div class="bg-[#FFFFFF] w-[40px] h-[40px] rounded-full flex items-center p-[14px]">
+                  <i class="fa-solid fa-play text-yellow-500"></i>
+                </div>
+                <span class="font-semibold text-[18px] ml-[14px] leading-[30px] text-[#171100]"
+                  >Watch video</span
+                >
+              </button>
+            </div>
+
+            <p class="mt-[48px] font-normal text-[18px] leading-[30px] text-[#5F5B53]">
+              Recent engagement
+            </p>
+
+            <div>
+              <div class="flex mt-[8px]">
+                <p class="font-bold text-[44px] leading-[54px]">
+                  50K<span class="font-normal text-[#5F5B53] text-[18px] leading-[30px]"
+                    >Students</span
+                  >
+                </p>
+
+                <p class="ml-[29px] font-bold text-[44px] leading-[54px]">
+                  70+<span class="font-normal text-[#5F5B53] text-[18px] leading-[30px]"
+                    >Courses</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Popular courses -->
+    <section>
+      <div class="container py-[200px]">
+        <div class="flex justify-between items-center">
+          <div class="">
+            <h1 class="font-bold text-[38px] leading-[48px] text-[#171100]">Our popular courses</h1>
+            <p class="w-[458px] text-[#5F5B53] mt-[16px] font-normal text-[18px] leading-[30px]">
+              Build new skills with new trendy courses and shine for the next future career.
+            </p>
+          </div>
+          <div class="flex">
+            <button
+              class="w-[40px] h-[40px] hover:bg-[#FFB900] rounded-full bg-transparent border border-[#FFB900] group"
+            >
+              <span class="group-hover:text-white text-[#FFB900]">
+                <i class="fa-solid fa-angle-left"></i>
+              </span>
+            </button>
+            <button
+              class="ml-[20px] w-[40px] h-[40px] hover:bg-[#FFB900] rounded-full bg-transparent border border-[#FFB900] group"
+            >
+              <span class="group-hover:text-white text-[#FFB900]">
+                <i class="fa-solid fa-angle-right"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-[30px] mt-[55px]">
+          <div class="rounded-[12px] shadow-md hover:border-transparent">
+            <div>
+              <img
+                class="w-full h-[278px] rounded-t-lg object-cover"
+                src="/public/images/future.png"
+                alt="HinhAnh"
+              />
+            </div>
+            <div class="px-[22px] pt-[16px] pb-[22px]">
+              <div class="flex justify-between items-center">
+                <h1 class="font-semibold text-[18px] leading-[30px]">Basic web design.</h1>
+                <div class="">
+                  <i class="text-[#FEA31B] fa-solid fa-star"></i>
+                  <span class="font-normal text-[16px] leading-[28px] text-[#FEA31B]">4.5</span>
+                </div>
+              </div>
+              <p class="mt-[6px] font-normal text-[14px] leading-26px text-[#5F5B53]">
+                Get the best course, gain knowledge and shine for your future career.
+              </p>
+              <div class="flex justify-between items-center mt-[12px]">
+                <p class="font-semibold text-[18px] leading-[30px] text-[#171100]">$120.75</p>
+                <button
+                  class="bg-[#FFB900] rounded-[25px] font-semibold text-[14px] leading-[26px] text-[#FFFFFF] px-[24px] py-[12px] hover:bg-black"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[12px] shadow-md hover:border-transparent">
+            <div>
+              <img
+                class="w-full h-[278px] rounded-t-lg object-cover"
+                src="/public/images/future1.png"
+                alt="HinhAnh"
+              />
+            </div>
+            <div class="px-[22px] pt-[16px] pb-[22px]">
+              <div class="flex justify-between items-center">
+                <h1 class="font-semibold text-[18px] leading-[30px]">UI/UX design</h1>
+                <div class="">
+                  <i class="text-[#FEA31B] fa-solid fa-star"></i>
+                  <span class="font-normal text-[16px] leading-[28px] text-[#FEA31B]">4.5</span>
+                </div>
+              </div>
+              <p class="mt-[6px] font-normal text-[14px] leading-26px text-[#5F5B53]">
+                Get the best course, gain knowledge and shine for your future career.
+              </p>
+              <div class="flex justify-between items-center mt-[12px]">
+                <p class="font-semibold text-[18px] leading-[30px] text-[#171100]">$120.75</p>
+                <button
+                  class="bg-[#FFB900] rounded-[25px] font-semibold text-[14px] leading-[26px] text-[#FFFFFF] px-[24px] py-[12px] hover:bg-black"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[12px] shadow-md hover:border-transparent">
+            <div>
+              <img
+                class="w-full h-[278px] rounded-t-lg object-cover"
+                src="/public/images/future2.png"
+                alt="HinhAnh"
+              />
+            </div>
+            <div class="px-[22px] pt-[16px] pb-[22px]">
+              <div class="flex justify-between items-center">
+                <h1 class="font-semibold text-[18px] leading-[30px]">Web App design</h1>
+                <div class="">
+                  <i class="text-[#FEA31B] fa-solid fa-star"></i>
+                  <span class="font-normal text-[16px] leading-[28px] text-[#FEA31B]">4.5</span>
+                </div>
+              </div>
+              <p class="mt-[6px] font-normal text-[14px] leading-26px text-[#5F5B53]">
+                Get the best course, gain knowledge and shine for your future career.
+              </p>
+              <div class="flex justify-between items-center mt-[12px]">
+                <p class="font-semibold text-[18px] leading-[30px] text-[#171100]">$120.75</p>
+                <button
+                  class="bg-[#FFB900] rounded-[25px] font-semibold text-[14px] leading-[26px] text-[#FFFFFF] px-[24px] py-[12px] hover:bg-black"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Swiper Container  -->
+    <section class="bg-[#2E2100]">
+      <div class="container mb-[200px]">
+        <!-- Swiper Container -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="flex gap-[271px] py-[96px]">
+                <div>
+                  <div class="pb-[18px]"><img src="/public/images/User1.png" alt="HinhAnh" /></div>
+                  <p class="font-bold text-[24px] leading-[34px] text-[#F7F7F7]">Peter Moor</p>
+                  <p class="pb-[4px] text-[#BFBCB2] leading-[26px] text-[14px] font-normal">
+                    Student of Web Design
+                  </p>
+                </div>
+                <div class="ml-[30px]">
+                  <div><img src="/public/images/Vector.png" alt="" /></div>
+                  <p
+                    class="banner-title ml-[30px] w-[740px] h-[160px] font-normal text-[26px] leading-[40px] text-[#FFFFFF]"
+                  >
+                    Not only does my resume look impressive—filled with the names and logos of
+                    world-class institutions—but these certificates also bring me closer to my
+                    career goals by validating the skills I've learned."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex gap-[271px] py-[96px]">
+                <div>
+                  <div class="pb-[18px]">
+                    <img
+                      src="/public/images/User2.jpg"
+                      alt="HinhAnh"
+                      class="w-[72px] h-[72px] rounded-[72px] object-cover"
+                    />
+                  </div>
+                  <p class="font-bold text-[24px] leading-[34px] text-[#F7F7F7]">Peter Moor</p>
+                  <p class="pb-[4px] text-[#BFBCB2] leading-[26px] text-[14px] font-normal">
+                    Student of Web Design
+                  </p>
+                </div>
+                <div class="ml-[30px]">
+                  <div><img src="/public/images/Vector.png" alt="" /></div>
+                  <p
+                    class="banner-title ml-[30px] w-[740px] h-[160px] font-normal text-[26px] leading-[40px] text-[#FFFFFF]"
+                  >
+                    Not only does my resume look impressive—filled with the names and logos of
+                    world-class institutions—but these certificates also bring me closer to my
+                    career goals by validating the skills I've learned."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex gap-[271px] py-[96px]">
+                <div>
+                  <div class="pb-[18px]">
+                    <img
+                      src="/public/images/User3.jpg"
+                      alt="HinhAnh"
+                      class="w-[72px] h-[72px] rounded-[72px] object-cover"
+                    />
+                  </div>
+                  <p class="font-bold text-[24px] leading-[34px] text-[#F7F7F7]">Peter Moor</p>
+                  <p class="pb-[4px] text-[#BFBCB2] leading-[26px] text-[14px] font-normal">
+                    Student of Web Design
+                  </p>
+                </div>
+                <div class="ml-[30px]">
+                  <div><img src="/public/images/Vector.png" alt="" /></div>
+                  <p
+                    class="banner-title ml-[30px] w-[740px] h-[160px] font-normal text-[26px] leading-[40px] text-[#FFFFFF]"
+                  >
+                    Not only does my resume look impressive—filled with the names and logos of
+                    world-class institutions—but these certificates also bring me closer to my
+                    career goals by validating the skills I've learned."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: true, // Tạo hiệu ứng lặp
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        autoplay: {
+          delay: 3000 // Tự động chuyển slide sau 3 giây
+        }
+      });
+    </script>
+    <!-- Features -->
+    <section>
+      <div class="container">
+        <div class="grid gap-[24px] grid-cols-12 pb-[200px]">
+          <div class="flex gap-[30px] col-span-6">
+            <div class="mt-[34px]"><img src="/public/images/Lesson1.png" alt="" /></div>
+            <div><img src="/public/images/Lesson.png" alt="" /></div>
+          </div>
+          <div class="col-span-6 mt-[58px]">
+            <h1 class="banner-title font-bold text-[38px] leading-[48px] text-[#171100]">
+              Learner outcomes through our awesome platform
+            </h1>
+            <p class="font-normal text-[16px] leading-[28px] text-[#5F5B53] mt-[16px]">
+              87% of people learning for professional development report career benefits like
+              getting a promotion, a raise, or starting a new career.
+            </p>
+            <p class="font-normal text-[16px] leading-[28px] text-[#5F5B53] mt-[16px]">
+              Lesson Impact Report (2022)
+            </p>
+
+            <button
+              class="bg-[#FFB900] mt-[34px] rounded-[26px] px-[37px] py-[11px] font-semibold text-[16px] leading-[28px] text-[#FFFFFF]"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- main content -->
+    <section>
+      <div class="container pb-[200px]">
+        <div class="grid gap-[130px] grid-cols-12 items-center">
+          <div class="col-span-6">
+            <div class="">
+              <h1 class="font-bold text-[38px] leading-[48px] text-[#171100]">
+                Take the next step toward your personal and professional goals with Lesson.
+              </h1>
+              <p
+                class="banner-title font-normal text-[#5F5B53] text-[16px] leading-[28px] mt-[16px]"
+              >
+                Take the next step toward. Join now to receive personalized and more recommendations
+                from the full Coursera catalog.
+              </p>
+              <button
+                class="bg-[#FFB900] rounded-[26px] px-[32px] py-[12px] text-[#FFFFFF] leading-[28px] text-[16px] font-semibold mt-[32px]"
+              >
+                Join Now
+              </button>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <img class="w-[470px] h-[440px]" src="/public/images/take.png" alt="HinhAnh" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Our blog  -->
+    <section class="bg-[#FFFCF4]">
+      <div class="container pt-[96px] pb-[140px]">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="font-bold text-[38px] leading-[48px] texet-[#130606] pb-[16px]">Our blog</h1>
+          <p
+            class="text-[#696262] w-[448px] h-[56px] leading-[28px] text-[16px] font-normal text-center"
+          >
+            Read our regular travel blog and know the latest update of tour and travel
+          </p>
+        </div>
+
+        <!-- <div class="grid gap-[24px] grid-cols-3 pt-[55px]"></div> -->
+        <div class="slider mt-[55px]">
+          <!-- Radio buttons for pagination -->
+          <input type="radio" name="slider" id="slide1" checked />
+          <input type="radio" name="slider" id="slide2" />
+          <input type="radio" name="slider" id="slide3" />
+
+          <!-- Slides container -->
+          <div class="slides pb-[30px]">
+            <!-- items1 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-1.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items2 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-2.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items3 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-3.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items4 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-4.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items5 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-5.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items6 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-6.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items7 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-7.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items8 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-8.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+            <!-- items9 -->
+            <div class="slide">
+              <img
+                src="/public/images/blog-9.png"
+                alt="HinhAnh"
+                class="w-full h-[250px] rounded-t-lg object-cover"
+              />
+              <div
+                class="px-[20px] bg-[#FFFFFF] pb-[28px] rounded-b-lg shadow-md hover:border-transparent"
+              >
+                <p
+                  class="font-normal text-[14px] leading-[26px] text-[#5F5B53] pt-[20px] pb-[12px] flex items-center gap-[8px]"
+                >
+                  <span class="w-[6px] h-[6px] rounded-[75px] bg-[#FFB900] inline-block"></span>
+                  21 November 2021
+                </p>
+                <hr class="w-[160px] pb-[12px]" />
+                <p class="font-semibold text-[16px] leading-[28px] text-[#171100] pb-[12px]">
+                  How to become a pro web designer in 2022 and get a remote job?
+                </p>
+                <button
+                  class="bg-[#171100] rounded-[25px] px-[21px] py-[12px] text-[#FFFFFF] font-semibold text-[14px] leading-[26px] hover:bg-[#FFB900]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination bullets -->
+          <div class="pagination">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <section class="bg-[#2E2100]">
+      <div class="container pt-[96px]">
+        <div class="grid grid-cols-12">
+          <div class="col-span-3">
+            <div class="flex flex-col gap-y-[18px]">
+              <h1 class="font-bold text-[24px] leading-[34px] text-[#FFFFFF]">
+                Lesson <span class="font-bold text-[#FFB900] text-[24px] leading-[34px]">.</span>
+              </h1>
+              <p class="text-[#BFBCB2] w-[267px] font-normal text-[14px] leading-[26px]">
+                Need to help for your dream Career? trust us. With Lesson, study becomes a lot
+                easier with us.
+              </p>
+              <div class="flex items-center gap-[10px]">
+                <i class="text-[#FFFFFF] fa-brands fa-twitter"></i>
+                <i class="text-[#FFFFFF] fa-brands fa-facebook-f"></i>
+                <i class="text-[#FFFFFF] fa-brands fa-linkedin-in"></i>
+                <i class="text-[#FFFFFF] fa-brands fa-instagram"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-3">
+            <h1 class="font-semibold text-[16px] text-[#FFFFFF] leading-[28px] pb-[14px]">
+              Company
+            </h1>
+            <hr class="w-[140px] border-[#59554B]" />
+            <div class="flex flex-col gap-[12px]">
+              <p class="pt-[28px] font-normal text-[14px] leading-[26px] text-[#BFBCB2]">
+                About Us
+              </p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">Features</p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">Our Pricing</p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">Latest News</p>
+            </div>
+          </div>
+
+          <div class="col-span-3">
+            <h1 class="font-semibold text-[16px] text-[#FFFFFF] leading-[28px] pb-[14px]">
+              Support
+            </h1>
+            <hr class="w-[140px] border-[#59554B]" />
+            <div class="flex flex-col gap-[12px]">
+              <p class="pt-[28px] font-normal text-[14px] leading-[26px] text-[#BFBCB2]">FAQ’s</p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">
+                Terms & Conditions
+              </p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">Privacy Policy</p>
+              <p class="font-normal text-[14px] leading-[26px] text-[#BFBCB2]">Contact Us</p>
+            </div>
+          </div>
+
+          <div class="col-span-3">
+            <h1 class="font-semibold text-[16px] text-[#FFFFFF] leading-[28px] pb-[14px]">
+              Address
+            </h1>
+            <hr class="w-[140px] border-[#59554B]" />
+            <div class="flex flex-col gap-[12px]">
+              <p class="pt-[28px] font-semibold text-[14px] leading-[26px] text-[#FFFFFF]">
+                Location:<span
+                  class="pt-[28px] font-normal text-[14px] leading-[26px] text-[#BFBCB2]"
+                >
+                  27 Division St, New York, NY 10002, USA</span
+                >
+              </p>
+
+              <p class="font-semibold text-[14px] leading-[26px] text-[#FFFFFF]">
+                Email:<span class="pt-[28px] font-normal text-[14px] leading-[26px] text-[#BFBCB2]">
+                  email@gmail.com</span
+                >
+              </p>
+              <p class="font-semibold text-[14px] leading-[26px] text-[#FFFFFF]">
+                Phone:<span class="pt-[28px] font-normal text-[14px] leading-[26px] text-[#BFBCB2]">
+                  + 000 1234 567 890</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr class="w-full border-[#59554B] mt-[38px]" />
+        <div class="py-[28px]">
+          <p
+            class="font-normal text-[14px] leading-[26px] flex justify-center items-center text-[#807D74]"
+          >
+            Copyright ©2022 webdesign.gdn All rights reserved
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
